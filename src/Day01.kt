@@ -18,9 +18,9 @@ fun main() {
 
     fun part2(input: List<String>): Long {
         val (left, right) = parseInput(input)
-        val freq = right.groupingBy { it }.eachCount()
+        val freqMap = right.groupingBy { it }.eachCount()
         return left.fold(0L) { acc, num ->
-            acc + num * freq.getOrDefault(num, 0)
+            acc + num * freqMap.getOrDefault(num, 0)
         }
     }
 
